@@ -1,0 +1,31 @@
+{
+  "host": "color-schemer-api-app.feathersjs.com",
+  "port": 80,
+  "postgres": {
+    "database": "POSTGRES_DB",
+    "username": "POSTGRES_USER",
+    "password": "POSTGRES_PASSWORD"
+  },
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "FEATHERS_AUTH_SECRET"
+    },
+    "local": {},
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "permissions": {
+        "scope": []
+      }
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "permissions": {
+        "scope": ["profile"]
+      }
+    }
+  }
+}

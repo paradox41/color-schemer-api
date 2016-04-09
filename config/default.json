@@ -1,0 +1,27 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "postgres": "DATABASE_URI",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "3YfRu0zWqRHrk5CJF/KEBjFMUyETQdG///EP1SYcw75rGEMTEZ6UHmzy8Nv1y4y/1t4ulfLptAhYzcCv6i5HpQ=="
+    },
+    "local": {},
+    "github": {
+      "clientID": "your github client id",
+      "clientSecret": "your github client secret",
+      "permissions": {
+        "scope": []
+      }
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "permissions": {
+        "scope": ["profile"]
+      }
+    }
+  }
+}

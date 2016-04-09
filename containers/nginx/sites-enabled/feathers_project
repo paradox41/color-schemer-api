@@ -1,0 +1,29 @@
+server {
+  error_log /dev/stderr info;
+  access_log /dev/stdout;
+
+  listen 80;
+  server_name _;
+  charset utf-8;
+
+  gzip on;
+  gzip_disable "msie6";
+  gzip_vary on;
+  gzip_buffers 64 4k;
+  gzip_comp_level 4;
+  gzip_proxied any;
+  gzip_types text/plain text/css application/x-javascript text/xml application/xml application/javascript text/javascript application/json text/json;
+
+  location / {
+    root /www/static/color-schemer-frontend/;
+  }
+
+  location /api {
+    rewrite ^/api/(.*) /$1 break;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+
+    proxy_pass http://web:3030;
+  }
+}
