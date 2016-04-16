@@ -1,4 +1,3 @@
-from sqlalchemy import text
 from flask.ext.login import UserMixin
 
 from color_schemer import db
