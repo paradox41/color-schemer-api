@@ -1,0 +1,51 @@
+upstream flask {
+    server web:5000;
+}
+
+server {
+    error_log /dev/stderr info;
+    access_log /dev/stdout;
+
+    listen 80;
+    server_name _;
+    charset utf-8;
+
+    gzip on;
+    gzip_disable "msie6";
+    gzip_vary on;
+    gzip_buffers 64 4k;
+    gzip_comp_level 4;
+    gzip_proxied any;
+    gzip_types text/plain text/css application/x-javascript text/xml application/xml application/javascript text/javascript application/json text/json;
+
+
+    location /app/ {
+        root /www/static/color-schemer-frontend/;
+    }
+
+    location /node_modules/ {
+        root /www/static/color-schemer-frontend/node_modules;
+    }
+
+    location /api/ {
+        try_files $uri @api;
+    }
+
+    # location = / {
+    #     return 301 /login;
+    # }
+
+    location / {
+        try_files $uri $uri/index.html @api;
+    }
+
+    location @api {
+        include uwsgi_params;
+
+        uwsgi_pass flask;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
