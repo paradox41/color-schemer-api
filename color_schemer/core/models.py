@@ -5,7 +5,11 @@ from color_schemer.utils import utcnow
 
 
 class TimestampMixin(object):
-    created_at = db.Column(db.DateTime(timezone=True), server_default=db.func.now(), default=utcnow)
+    created_at = db.Column(
+        db.DateTime(
+            timezone=True),
+        server_default=db.func.now(),
+        default=utcnow)
     updated_at = db.Column(
         db.DateTime(
             timezone=True),
