@@ -18,7 +18,6 @@ server {
     gzip_proxied any;
     gzip_types text/plain text/css application/x-javascript text/xml application/xml application/javascript text/javascript application/json text/json;
 
-
     location /app/ {
         root /www/static/color-schemer-frontend/;
     }
