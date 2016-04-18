@@ -30,9 +30,9 @@ server {
         try_files $uri @api;
     }
 
-    # location = / {
-    #     return 301 /login;
-    # }
+    location = / {
+        return 301 /login;
+    }
 
     location / {
         try_files $uri $uri/index.html @api;
