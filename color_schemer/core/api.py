@@ -12,7 +12,7 @@ from .models import User
 color_schemer_api = Blueprint('api', __name__)
 
 
-class EmployeeResource(RestResource):
+class UserResource(RestResource):
 
     email = Field()
 
@@ -26,4 +26,4 @@ class EmployeeResource(RestResource):
         return jsonify(cls.serialize(current_user))
 
 
-EmployeeResource.register_api(color_schemer_api)
+UserResource.register_api(color_schemer_api)
