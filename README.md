@@ -33,7 +33,11 @@ docker-compose run --rm <container> bash
 
 Note: Docker launches a new <container> instance when you use `docker-compose run`. The --rm flag is passed to tell docker-compose to remove the container instance once we are finished with it.
 
-### To initialize/update the database schema
+### To initialize the database schema
+
+1. `docker-compose run --rm web color-schemer create`
+
+### To update the database schema
 
 1. `docker-compose run --rm web alembic upgrade head`
 
