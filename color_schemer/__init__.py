@@ -20,6 +20,16 @@ def get_configargparse_config():
     # this option can be set in a config file because it starts with '--'
     p.add('--SECRET_KEY', required=False, env_var='SECRET_KEY')
     p.add('--SQLALCHEMY_DATABASE_URI', required=True, env_var='SQLALCHEMY_DATABASE_URI')
+    p.add(
+        '--GOOGLE_CONSUMER_KEY',
+        required=True,
+        env_var='GOOGLE_CONSUMER_KEY',
+        dest='GOOGLE_CONSUMER_KEY')
+    p.add(
+        '--GOOGLE_CONSUMER_SECRET',
+        required=True,
+        env_var='GOOGLE_CONSUMER_SECRET',
+        dest='GOOGLE_CONSUMER_SECRET')
     p.add('--LOG_LEVEL', required=False, env_var='LOG_LEVEL', default=logging.INFO)
 
     options = p.parse_args()
