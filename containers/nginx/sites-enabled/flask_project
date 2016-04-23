@@ -19,11 +19,7 @@ server {
     gzip_types text/plain text/css application/x-javascript text/xml application/xml application/javascript text/javascript application/json text/json;
 
     location /app/ {
-        root /www/static/color-schemer-frontend/;
-    }
-
-    location /node_modules/ {
-        root /www/static/color-schemer-frontend/node_modules;
+        alias /www/static/color-schemer-frontend/build/;
     }
 
     location /api/ {
@@ -35,7 +31,7 @@ server {
     }
 
     location / {
-        try_files $uri $uri/index.html @api;
+        try_files $uri $uri/ @api;
     }
 
     location @api {
