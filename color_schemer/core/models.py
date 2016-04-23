@@ -1,5 +1,7 @@
 from flask.ext.login import UserMixin
 
+from sqlalchemy.dialects.postgresql import JSONB
+
 from color_schemer import db
 from color_schemer.utils import utcnow
 
@@ -28,3 +30,14 @@ class User(db.Model, UserMixin, TimestampMixin):
 
     def get_id(self):
         return self.email
+
+
+class Theme(db.Model, TimestampMixin):
+
+    __tablename__ = 'themes'
+
+    theme_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text, nullable=False)
+    schema = db.Column(JSONB, nullable=False, server_default='{}', default={})
+
+    owner = db.Column(db.String(255), db.ForeignKey('users.email'), nullable=False)

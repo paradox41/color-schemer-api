@@ -7,7 +7,7 @@ from resource_alchemy import (
     FullAuthorization,
     resource_route)
 
-from .models import User
+from .models import User, Theme
 
 color_schemer_api = Blueprint('api', __name__)
 
@@ -27,3 +27,20 @@ class UserResource(RestResource):
 
 
 UserResource.register_api(color_schemer_api)
+
+
+class ThemeResource(RestResource):
+
+    theme_id = Field()
+    name = Field()
+    schema = Field()
+    owner = Field()
+
+    class meta:
+        model = Theme
+        name = 'themes'
+        authorization = FullAuthorization
+        results_per_page = 500
+
+
+ThemeResource.register_api(color_schemer_api)
