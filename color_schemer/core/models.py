@@ -25,7 +25,7 @@ class User(db.Model, UserMixin, TimestampMixin):
 
     __tablename__ = 'users'
 
-    email = db.Column(db.String(255), primary_key=True)
+    email = db.Column(db.Text, primary_key=True)
     google_token = db.Column(db.Text)
 
     def get_id(self):
@@ -39,5 +39,5 @@ class Theme(db.Model, TimestampMixin):
     theme_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
     schema = db.Column(JSONB, nullable=False, server_default='{}', default={})
-
-    owner = db.Column(db.String(255), db.ForeignKey('users.email'), nullable=False)
+    image_url = db.Column(db.Text)
+    author = db.Column(db.Text, db.ForeignKey('users.email'), nullable=False)
