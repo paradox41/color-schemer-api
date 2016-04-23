@@ -18,6 +18,7 @@ class UserResource(RestResource):
 
     class meta:
         model = User
+        name = 'users'
         authorization = FullAuthorization
         results_per_page = 500
 
