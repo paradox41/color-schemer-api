@@ -41,12 +41,13 @@ Note: Docker launches a new <container> instance when you use `docker-compose ru
 
 1. `docker-compose run --rm web alembic upgrade head`
 
+### SSL certificates
+
+Follow the guide [here](https://serversforhackers.com/video/self-signed-ssl-certificates-for-development) and put them into `./certificates` with the following names:
+
+`color-schemer.com.crt`
+`color-schemer.com.key`
+
 ### To access the app
 
-1. [Go to it](http://localhost:8080/app/)
-
-Note: Ok you actually have to hit [the login page](http://localhost:8080/login) manually first, todo: setup redirects...
-
-Note: If you are on OSX use the ip address of your docker-machine vm instead of `localhost`, since, you know, OSX only pretends to do docker. 
-
-If you need the google oauth redirect to work, you will need to map `<docker-vm-ip>:8080 -> localhost:8080`, since `localhost` is the what has been configured for development use in the google api cloud console.
+1. [Go to it](https://dev.color-schemer.com)
