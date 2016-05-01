@@ -66,3 +66,6 @@ target/
 
 # Docker
 containers/.env
+certificates/*.crt
+certificates/*.csr
+certificates/*.key

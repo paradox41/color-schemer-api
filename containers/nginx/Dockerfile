@@ -1,4 +1,4 @@
-FROM ubuntu:vivid
+FROM ubuntu:xenial
 
 RUN apt-get update && \
     apt-get install -y nginx && \
@@ -10,6 +10,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN rm /etc/nginx/sites-enabled/default
 RUN mkdir /www /www/static
 
-EXPOSE 80
+EXPOSE 443
 
 CMD ["/usr/sbin/nginx"]

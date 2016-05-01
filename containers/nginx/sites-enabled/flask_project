@@ -6,8 +6,13 @@ server {
     error_log /dev/stderr info;
     access_log /dev/stdout;
 
-    listen 80;
-    server_name _;
+    listen 443 ssl http2;
+
+    ssl on;
+    ssl_certificate /etc/ssl/color-schemer.com.crt;
+    ssl_certificate_key /etc/ssl/color-schemer.com.key;
+
+    server_name *.color-schemer.com;
     charset utf-8;
 
     gzip on;
